@@ -32,7 +32,9 @@ const options = {
       region: process.env.COMPANION_AWS_REGION
     }
   },
-  server: { host: process.env.PUBLIC_DOMAIN},
+  server: {
+    host: process.env.PUBLIC_DOMAIN
+  },
   filePath: DATA_DIR,
   secret: 'aa',
   debug: true
@@ -51,7 +53,7 @@ process.on('exit', function () {
 app.use(companion.app(options))
 
 const server = app.listen(process.env.PORT, () => {
-  console.log('listening on port 3020')
+  console.log('listening on port ' + process.env.PORT)
 })
 
 companion.socket(server, options)
